@@ -20,3 +20,5 @@ Environment variables
 |SHOW_REQUEST_LOG|true/false|
 
 Listen port: 3000
+
+Docker image can be found https://hub.docker.com/r/fatvictor/api-cache-proxy
