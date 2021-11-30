@@ -18,7 +18,6 @@ func main() {
 	if strings.EqualFold("TRUE", os.Getenv("SHOW_REQUEST_LOG")) {
 		app.Use(logger.New())
 	}
-	app.Use(services.NewCaching())
 	app.Get("/*", func(c *fiber.Ctx) error {
 		url := os.Getenv("TARGET_HOST") + string(c.Request().RequestURI())
 		if err := proxy.Do(c, url); err != nil {
@@ -27,6 +26,6 @@ func main() {
 		// Remove Server header from response
 		c.Response().Header.Del(fiber.HeaderServer)
 		return nil
-	})
+	}, services.NewCaching())
 	app.Listen(":3000")
 }
