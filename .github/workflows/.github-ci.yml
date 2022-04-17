@@ -30,4 +30,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKER_PASSWORD }}/api-cache-proxy:latest
+          tags: ${{ secrets.DOCKER_USER }}/api-cache-proxy:latest
